@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Disc, Menu, X, ChevronRight, ExternalLink } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ currentRoute = 'home', onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -12,6 +12,27 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e, href) => {
+    if (currentRoute !== 'home' && onNavigate) {
+      e.preventDefault();
+      onNavigate('/');
+      setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 120);
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = (e) => {
+    if (onNavigate) {
+      e.preventDefault();
+      onNavigate('/');
+    }
+  };
 
   const navLinks = [
     { name: 'Features', href: '#features' },
@@ -42,7 +63,11 @@ export default function Navbar() {
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
         
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+        <a 
+          href="/" 
+          onClick={handleLogoClick}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
+        >
           <div
             style={{
               width: '42px',
@@ -71,21 +96,55 @@ export default function Navbar() {
               <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em', color: '#FFFFFF', fontFamily: 'var(--font-heading)' }}>
                 SHADOW<span style={{ color: '#A78BFA' }}>MUSIC</span>
               </span>
-              <span
-                style={{
-                  fontSize: '0.65rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  padding: '2px 7px',
-                  borderRadius: '100px',
-                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2))',
-                  border: '1px solid rgba(139, 92, 246, 0.4)',
-                  color: '#C084FC',
-                  letterSpacing: '0.04em'
-                }}
-              >
-                v2.4 AI
-              </span>
+              {currentRoute === 'terms' ? (
+                <span
+                  style={{
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    padding: '2px 8px',
+                    borderRadius: '100px',
+                    background: 'rgba(139, 92, 246, 0.25)',
+                    border: '1px solid rgba(139, 92, 246, 0.5)',
+                    color: '#C4B5FD',
+                    letterSpacing: '0.04em'
+                  }}
+                >
+                  TERMS
+                </span>
+              ) : currentRoute === 'privacy' ? (
+                <span
+                  style={{
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    padding: '2px 8px',
+                    borderRadius: '100px',
+                    background: 'rgba(6, 182, 212, 0.25)',
+                    border: '1px solid rgba(6, 182, 212, 0.5)',
+                    color: '#67E8F9',
+                    letterSpacing: '0.04em'
+                  }}
+                >
+                  PRIVACY
+                </span>
+              ) : (
+                <span
+                  style={{
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    padding: '2px 7px',
+                    borderRadius: '100px',
+                    background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2))',
+                    border: '1px solid rgba(139, 92, 246, 0.4)',
+                    color: '#C084FC',
+                    letterSpacing: '0.04em'
+                  }}
+                >
+                  v2.4 AI
+                </span>
+              )}
             </div>
           </div>
         </a>
@@ -96,6 +155,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               style={{
                 fontSize: '0.9rem',
                 fontWeight: 500,
@@ -171,7 +231,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
               style={{
                 fontSize: '1.05rem',
                 fontWeight: 600,

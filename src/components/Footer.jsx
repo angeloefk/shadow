@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Sparkles, Disc, Heart, Shield, Radio, ExternalLink, ArrowRight } from 'lucide-react';
 
-export default function Footer() {
-  const [modalType, setModalType] = useState(null); // 'tos' | 'privacy' | null
+export default function Footer({ onNavigate }) {
+  const [modalType, setModalType] = useState(null); // fallback modal
+
+  const handleLinkClick = (e, path) => {
+    if (!e.ctrlKey && !e.metaKey && !e.shiftKey && onNavigate) {
+      e.preventDefault();
+      onNavigate(path);
+    }
+  };
 
   return (
     <footer style={{ position: 'relative', marginTop: '60px', overflow: 'hidden' }}>
@@ -194,20 +201,36 @@ export default function Footer() {
               </h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.875rem', color: '#94A3B8' }}>
                 <li>
-                  <button
-                    onClick={() => setModalType('tos')}
-                    style={{ background: 'transparent', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.875rem', textAlign: 'left', padding: 0 }}
+                  <a
+                    href="/terms"
+                    onClick={(e) => handleLinkClick(e, '/terms')}
+                    style={{ 
+                      color: '#94A3B8', 
+                      transition: 'color 0.2s', 
+                      display: 'inline-block',
+                      cursor: 'pointer' 
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#A78BFA')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
                   >
                     Terms of Service
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setModalType('privacy')}
-                    style={{ background: 'transparent', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.875rem', textAlign: 'left', padding: 0 }}
+                  <a
+                    href="/privacy"
+                    onClick={(e) => handleLinkClick(e, '/privacy')}
+                    style={{ 
+                      color: '#94A3B8', 
+                      transition: 'color 0.2s', 
+                      display: 'inline-block',
+                      cursor: 'pointer' 
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#22D3EE')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
                   >
                     Privacy Policy
-                  </button>
+                  </a>
                 </li>
                 <li><span style={{ color: '#64748B' }}>Discord Verified Application</span></li>
                 <li><span style={{ color: '#64748B' }}>Encrypted Token Storage</span></li>

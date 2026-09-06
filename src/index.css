@@ -81,7 +81,7 @@ body {
   position: relative;
 }
 
-/* Background Ambient Lighting Mesh */
+/* Background Ambient Lighting Mesh - Subdued and Professional */
 body::before {
   content: '';
   position: fixed;
@@ -90,24 +90,10 @@ body::before {
   right: 0;
   height: 100vh;
   background: 
-    radial-gradient(circle 800px at 20% -10%, rgba(139, 92, 246, 0.14), transparent 60%),
-    radial-gradient(circle 700px at 80% 20%, rgba(6, 182, 212, 0.10), transparent 55%),
-    radial-gradient(circle 900px at 50% 80%, rgba(99, 102, 241, 0.08), transparent 65%);
+    radial-gradient(circle 800px at 50% -20%, rgba(124, 58, 237, 0.08), transparent 70%),
+    radial-gradient(circle 600px at 90% 40%, rgba(6, 182, 212, 0.04), transparent 60%);
   pointer-events: none;
   z-index: 0;
-}
-
-/* Subtle Tech Grid Texture */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
 #root {

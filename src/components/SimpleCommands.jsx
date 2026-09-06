@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Copy, Check, Sparkles, Play, Sliders, ListMusic, FileText, Radio, Volume2, CornerDownRight } from 'lucide-react';
+import { Copy, Check, Play, Sliders, ListMusic, FileText, Radio, CornerDownRight } from 'lucide-react';
 
 export default function SimpleCommands() {
   const [activeTab, setActiveTab] = useState('play');
@@ -12,13 +12,11 @@ export default function SimpleCommands() {
       id: 'play',
       name: '/play',
       syntax: '/play <song or link>',
-      badge: 'Core Playback',
-      icon: <Play size={16} />,
-      shortDesc: 'Play any track, album, or playlist from Spotify, SoundCloud, or YouTube.',
+      icon: <Play size={15} />,
       userPrompt: 'used /play query: Starboy - The Weeknd',
       embed: {
         borderColor: '#8B5CF6',
-        title: '🎶 Now Playing',
+        title: 'Now Playing',
         description: '**[The Weeknd - Starboy (ft. Daft Punk)](https://open.spotify.com)**',
         fields: [
           { label: 'Artist', value: 'The Weeknd' },
@@ -27,21 +25,19 @@ export default function SimpleCommands() {
           { label: 'Requested by', value: '@You' },
         ],
         thumbnail: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=160&h=160&fit=crop&q=80',
-        footer: 'Server: Cyberpunk Lounge • Queue: 4 songs',
-        buttons: ['⏸️ Pause', '⏭️ Skip', '🔀 Shuffle', '📜 Lyrics', '❤️ Favorite'],
+        footer: 'Server: Cyberpunk Lounge • Queue: 4 tracks',
+        buttons: ['Pause', 'Skip', 'Shuffle', 'Lyrics'],
       },
     },
     {
       id: 'queue',
       name: '/queue',
       syntax: '/queue [page]',
-      badge: 'Queue Control',
-      icon: <ListMusic size={16} />,
-      shortDesc: 'View upcoming songs, total playlist length, and requesters with pagination.',
+      icon: <ListMusic size={15} />,
       userPrompt: 'used /queue page: 1',
       embed: {
-        borderColor: '#EC4899',
-        title: '📜 Server Music Queue',
+        borderColor: '#A855F7',
+        title: 'Server Music Queue',
         description: `**Now Playing:**
 ▶️ **[The Weeknd - Starboy]** [3:50] • *@You*
 
@@ -50,48 +46,44 @@ export default function SimpleCommands() {
 **2.** Post Malone - Circles [3:35] • *@Sarah*
 **3.** Metro Boomin - Space Cadet [3:23] • *@Kev*`,
         fields: [
-          { label: 'Total Songs', value: '4 tracks' },
-          { label: 'Total Duration', value: '15 mins 06 secs' },
-          { label: 'Loop Mode', value: 'Disabled' },
-          { label: 'Autoplay', value: 'Enabled' },
+          { label: 'Total Tracks', value: '4 songs' },
+          { label: 'Total Duration', value: '15:06' },
+          { label: 'Loop Mode', value: 'Off' },
+          { label: 'Autoplay', value: 'On' },
         ],
-        footer: 'Page 1 of 2 • Type /queue 2 for more',
-        buttons: ['◀️ Prev', '1 / 2', '▶️ Next', '🔀 Shuffle', '🗑️ Clear'],
+        footer: 'Page 1 of 2 • Use /queue 2 for next page',
+        buttons: ['◀ Previous', '1 / 2', 'Next ▶', 'Clear'],
       },
     },
     {
       id: 'filter',
       name: '/filter',
       syntax: '/filter <8d | bassboost | nightcore | lofi | off>',
-      badge: 'Audio FX',
-      icon: <Sliders size={16} />,
-      shortDesc: 'Apply studio-grade hardware DSP filters in real-time with zero lag.',
+      icon: <Sliders size={15} />,
       userPrompt: 'used /filter type: 8d',
       embed: {
         borderColor: '#06B6D4',
-        title: '🎛️ DSP Audio Filter Activated',
-        description: 'Applied **Spatial 8D Audio** filter to voice stream. The sound is now rotating in 360° binaural space.',
+        title: 'DSP Audio Filter Applied',
+        description: 'Applied **Spatial 8D Audio** filter. The sound is now rotating in 360° binaural stereo.',
         fields: [
-          { label: 'Active Filter', value: '8D Binaural Spatial' },
-          { label: 'Hardware Node', value: 'Cluster EU-01 (Opus)' },
-          { label: 'Audio Latency', value: '8ms' },
-          { label: 'Status', value: 'Streaming Active' },
+          { label: 'Active Preset', value: '8D Binaural Spatial' },
+          { label: 'Processing Node', value: 'Cluster EU-01 (Opus)' },
+          { label: 'Latency', value: '8ms' },
+          { label: 'Status', value: 'Active' },
         ],
-        footer: 'Tip: Use /filter off anytime to restore flat sound',
-        buttons: ['Bass Boost', 'Nightcore', '8D Spatial', 'Lo-Fi', 'Turn Off'],
+        footer: 'Tip: Use /filter off anytime to reset audio',
+        buttons: ['Bass Boost', 'Nightcore', '8D Audio', 'Lo-Fi', 'Reset'],
       },
     },
     {
       id: 'lyrics',
       name: '/lyrics',
       syntax: '/lyrics [song name]',
-      badge: 'Interactive',
-      icon: <FileText size={16} />,
-      shortDesc: 'Fetch live synchronized scrolling lyrics for the currently playing track.',
+      icon: <FileText size={15} />,
       userPrompt: 'used /lyrics',
       embed: {
         borderColor: '#10B981',
-        title: '📝 Lyrics: The Weeknd — Starboy',
+        title: 'Lyrics: The Weeknd — Starboy',
         description: `*I'm tryna put you in the worst mood, ah*
 *P1 cleaner than your church shoes, ah*
 *Milli point two just to hurt you, ah*
@@ -99,43 +91,41 @@ export default function SimpleCommands() {
 *None of these toys on lease too, ah...*`,
         fields: [
           { label: 'Track', value: 'Starboy' },
-          { label: 'Provider', value: 'Genius Synced' },
+          { label: 'Source', value: 'Genius Synced' },
         ],
         footer: 'Synced lyrics • Line 1-5 of 42',
-        buttons: ['🔄 Refresh', '📄 Full Lyrics', '🌐 Open Genius'],
+        buttons: ['Refresh', 'Full Lyrics'],
       },
     },
     {
       id: '247',
       name: '/247',
       syntax: '/247',
-      badge: 'Voice Utility',
-      icon: <Radio size={16} />,
-      shortDesc: 'Keep Shadow inside your server voice room 24/7 without disconnecting.',
+      icon: <Radio size={15} />,
       userPrompt: 'used /247',
       embed: {
-        borderColor: '#F59E0B',
-        title: '⚡ 24/7 Voice Channel Mode',
-        description: '✅ **24/7 Mode is now ENABLED!**\n\nShadow will stay in **#voice-lounge** permanently. The bot will never leave even when the room is empty.',
+        borderColor: '#EAB308',
+        title: '24/7 Voice Mode',
+        description: 'Shadow will now stay in **#voice-lounge** permanently without disconnecting when members leave.',
         fields: [
-          { label: 'Target Channel', value: '#voice-lounge' },
+          { label: 'Room', value: '#voice-lounge' },
           { label: 'Auto-Reconnect', value: 'Enabled' },
-          { label: 'Cluster Affinity', value: 'Persistent' },
-          { label: 'Uptime Tier', value: '99.98%' },
+          { label: 'Cluster', value: 'Persistent' },
+          { label: 'Uptime', value: '99.98%' },
         ],
-        footer: 'Toggle off anytime using /247 again',
-        buttons: ['Disable 24/7', 'Switch Channel', 'Set Volume'],
+        footer: 'Run /247 again anytime to disable',
+        buttons: ['Disable 24/7', 'Switch Channel'],
       },
     },
   ];
 
-  const quickCommands = [
-    { cmd: '/pause', desc: 'Pause current song' },
-    { cmd: '/resume', desc: 'Resume playback' },
-    { cmd: '/skip', desc: 'Skip to next song' },
-    { cmd: '/volume', desc: 'Set room volume (1-100)' },
-    { cmd: '/stop', desc: 'Stop & disconnect bot' },
-    { cmd: '/shuffle', desc: 'Randomize queue tracks' },
+  const quickReference = [
+    { cmd: '/pause', syntax: '/pause', desc: 'Temporarily pause current playback' },
+    { cmd: '/resume', syntax: '/resume', desc: 'Resume paused playback' },
+    { cmd: '/skip', syntax: '/skip [number]', desc: 'Skip to the next song or index in queue' },
+    { cmd: '/volume', syntax: '/volume <1-100>', desc: 'Adjust master bot volume for the voice channel' },
+    { cmd: '/stop', syntax: '/stop', desc: 'Clear queue, stop music, and leave channel' },
+    { cmd: '/shuffle', syntax: '/shuffle', desc: 'Randomize the upcoming queue order' },
   ];
 
   const activeCmd = commandsData.find((c) => c.id === activeTab) || commandsData[0];
@@ -149,32 +139,27 @@ export default function SimpleCommands() {
   };
 
   return (
-    <section id="commands" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="commands" style={{ padding: '110px 0', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
       <div className="container">
         
-        {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 45px auto' }}>
-          <div className="badge-glow" style={{ marginBottom: '16px' }}>
-            <Terminal size={14} color="#A78BFA" />
-            <span>DISCORD SLASH COMMANDS</span>
-          </div>
-          <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.6rem)', fontWeight: 800, marginBottom: '14px', letterSpacing: '-0.02em' }}>
-            Interactive <span className="gradient-text-violet">Command Arsenal</span>
+        {/* Section Heading: Heading -> Short description -> Content */}
+        <div style={{ maxWidth: '640px', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 800, marginBottom: '14px', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
+            Slash commands in action.
           </h2>
-          <p style={{ fontSize: '1.05rem', color: '#94A3B8', lineHeight: 1.6 }}>
-            See exactly how Shadow responds in your Discord voice and text channels with rich embeds and action buttons.
+          <p style={{ fontSize: '1.1rem', color: '#94A3B8', lineHeight: 1.6 }}>
+            Type <code style={{ color: '#E2E8F0', background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: '4px' }}>/</code> in your Discord server to access intuitive controls with auto-completion.
           </p>
         </div>
 
-        {/* Command Selector Tabs */}
+        {/* Command Selector Tabs - Simple, Clean, Non-Glowing */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
+            gap: '8px',
             flexWrap: 'wrap',
-            marginBottom: '32px',
+            marginBottom: '24px',
           }}
         >
           {commandsData.map((cmd) => {
@@ -187,64 +172,50 @@ export default function SimpleCommands() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '10px 18px',
-                  borderRadius: '12px',
-                  background: isSelected ? 'rgba(139, 92, 246, 0.25)' : 'rgba(255, 255, 255, 0.04)',
-                  border: isSelected ? '1px solid #8B5CF6' : '1px solid rgba(255, 255, 255, 0.08)',
+                  padding: '9px 16px',
+                  borderRadius: '8px',
+                  background: isSelected ? '#1E2333' : 'transparent',
+                  border: isSelected ? '1px solid rgba(139, 92, 246, 0.5)' : '1px solid rgba(255, 255, 255, 0.08)',
                   color: isSelected ? '#FFFFFF' : '#94A3B8',
-                  fontSize: '0.9rem',
+                  fontSize: '0.875rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  boxShadow: isSelected ? '0 0 20px rgba(139, 92, 246, 0.3)' : 'none',
+                  transition: 'all 0.15s ease',
                 }}
               >
                 {cmd.icon}
                 <span>{cmd.name}</span>
-                <span
-                  style={{
-                    fontSize: '0.68rem',
-                    padding: '2px 6px',
-                    borderRadius: '4px',
-                    background: isSelected ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.05)',
-                    color: isSelected ? '#FFFFFF' : '#64748B',
-                  }}
-                >
-                  {cmd.badge}
-                </span>
               </button>
             );
           })}
         </div>
 
-        {/* Live Discord Message Mockup Box */}
+        {/* Live Discord Message Preview - Authentic Discord Styling, No Neon Halos */}
         <div
           style={{
-            maxWidth: '860px',
-            margin: '0 auto 40px auto',
-            borderRadius: '20px',
-            background: 'rgba(20, 24, 38, 0.95)',
-            border: '1px solid rgba(139, 92, 246, 0.3)',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+            maxWidth: '900px',
+            borderRadius: '12px',
+            background: '#1E1F22',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
             overflow: 'hidden',
+            marginBottom: '60px',
           }}
         >
-          {/* Top Discord Window Header */}
+          {/* Top Discord Bar */}
           <div
             style={{
-              padding: '12px 20px',
-              background: 'rgba(255, 255, 255, 0.03)',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+              padding: '10px 18px',
+              background: '#2B2D31',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              fontSize: '0.825rem',
+              fontSize: '0.8rem',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#CBD5E1', fontWeight: 600 }}>
-              <span style={{ color: '#8B5CF6' }}>#</span>
-              <span>music-chat</span>
-              <span style={{ color: '#64748B', fontWeight: 400 }}>• Discord Slash Response Preview</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#949BA4' }}>
+              <span style={{ color: '#8B5CF6', fontWeight: 700 }}>#</span>
+              <span style={{ color: '#F2F3F5', fontWeight: 600 }}>music-commands</span>
             </div>
 
             <button
@@ -253,66 +224,55 @@ export default function SimpleCommands() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '5px 12px',
-                borderRadius: '8px',
-                background: copiedCmd === activeCmd.name ? 'rgba(16, 185, 129, 0.2)' : 'rgba(139, 92, 246, 0.15)',
-                border: copiedCmd === activeCmd.name ? '1px solid #10B981' : '1px solid rgba(139, 92, 246, 0.35)',
-                color: copiedCmd === activeCmd.name ? '#34D399' : '#C4B5FD',
-                fontSize: '0.78rem',
+                padding: '4px 10px',
+                borderRadius: '6px',
+                background: 'rgba(255, 255, 255, 0.06)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                color: copiedCmd === activeCmd.name ? '#34D399' : '#DBDEE1',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 cursor: 'pointer',
-                transition: 'all 0.15s ease',
               }}
             >
-              {copiedCmd === activeCmd.name ? <Check size={13} /> : <Copy size={13} />}
+              {copiedCmd === activeCmd.name ? <Check size={12} /> : <Copy size={12} />}
               <span>{copiedCmd === activeCmd.name ? 'Copied' : `Copy ${activeCmd.name}`}</span>
             </button>
           </div>
 
-          {/* Discord Message Container */}
-          <div style={{ padding: '24px' }}>
+          {/* Discord Chat Area */}
+          <div style={{ padding: '20px' }}>
             
             {/* User Interaction Line */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px', color: '#94A3B8', fontSize: '0.8rem' }}>
-              <CornerDownRight size={14} color="#64748B" />
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&q=80"
-                alt="User"
-                style={{ width: '16px', height: '16px', borderRadius: '50%' }}
-              />
-              <span style={{ color: '#E2E8F0', fontWeight: 600 }}>You</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#949BA4', fontSize: '0.8rem' }}>
+              <CornerDownRight size={13} color="#64748B" />
+              <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: '#5865F2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#FFF' }}>
+                U
+              </div>
+              <span style={{ color: '#F2F3F5', fontWeight: 600 }}>You</span>
               <span>{activeCmd.userPrompt}</span>
             </div>
 
-            {/* Shadow Bot Response Header */}
-            <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              {/* Shadow Official Profile Avatar */}
-              <div style={{ position: 'relative', flexShrink: 0 }}>
-                <img
-                  src={shadowAvatarUrl}
-                  alt="Shadow Profile"
-                  style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    border: '2px solid rgba(139, 92, 246, 0.4)',
-                    boxShadow: '0 0 15px rgba(139, 92, 246, 0.4)',
-                  }}
-                  onError={(e) => {
-                    // Fallback to discord CDN direct if local fails
-                    e.target.src = 'https://cdn.discordapp.com/avatars/1352679776036589648/a_2b85e7ea42101ad3e3160c98880f3598.webp?size=1024';
-                  }}
-                />
-              </div>
+            {/* Shadow Bot Response */}
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+              <img
+                src={shadowAvatarUrl}
+                alt="Shadow"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  flexShrink: 0,
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://cdn.discordapp.com/avatars/1352679776036589648/a_2b85e7ea42101ad3e3160c98880f3598.webp?size=1024';
+                }}
+              />
 
-              {/* Bot Message Content */}
               <div style={{ flex: 1, minWidth: 0 }}>
-                {/* Bot Name & BOT Badge */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <span style={{ fontWeight: 700, color: '#FFFFFF', fontSize: '0.975rem' }}>
-                    Shadow
-                  </span>
+                {/* Header */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                  <span style={{ fontWeight: 600, color: '#F2F3F5', fontSize: '0.95rem' }}>Shadow</span>
                   <span
                     style={{
                       background: '#5865F2',
@@ -322,109 +282,76 @@ export default function SimpleCommands() {
                       padding: '1px 5px',
                       borderRadius: '3px',
                       textTransform: 'uppercase',
-                      letterSpacing: '0.02em',
                     }}
                   >
                     ✓ BOT
                   </span>
-                  <span style={{ color: '#64748B', fontSize: '0.75rem' }}>Today at 2:45 PM</span>
+                  <span style={{ color: '#949BA4', fontSize: '0.75rem' }}>Today at 2:45 PM</span>
                 </div>
 
-                {/* Discord Embed Box */}
+                {/* Discord Embed */}
                 <div
                   style={{
-                    maxWidth: '560px',
-                    borderRadius: '8px',
+                    maxWidth: '540px',
+                    borderRadius: '6px',
                     background: '#2B2D31',
                     borderLeft: `4px solid ${activeCmd.embed.borderColor}`,
-                    padding: '16px 18px',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                    padding: '14px 16px',
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', gap: '14px' }}>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div
-                        style={{
-                          fontSize: '0.85rem',
-                          fontWeight: 700,
-                          color: activeCmd.embed.borderColor,
-                          marginBottom: '4px',
-                        }}
-                      >
+                      <div style={{ fontSize: '0.85rem', fontWeight: 700, color: activeCmd.embed.borderColor, marginBottom: '4px' }}>
                         {activeCmd.embed.title}
                       </div>
 
-                      <div
-                        style={{
-                          color: '#DBDEE1',
-                          fontSize: '0.88rem',
-                          lineHeight: 1.5,
-                          marginBottom: '12px',
-                          whiteSpace: 'pre-line',
-                        }}
-                      >
+                      <div style={{ color: '#DBDEE1', fontSize: '0.85rem', lineHeight: 1.5, marginBottom: '10px', whiteSpace: 'pre-line' }}>
                         {activeCmd.embed.description}
                       </div>
 
-                      {/* Fields */}
-                      <div
-                        style={{
-                          display: 'grid',
-                          gridTemplateColumns: 'repeat(2, 1fr)',
-                          gap: '10px',
-                          marginBottom: '12px',
-                        }}
-                      >
+                      {/* Embed Fields */}
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginBottom: '10px' }}>
                         {activeCmd.embed.fields.map((f, i) => (
                           <div key={i}>
-                            <div style={{ fontSize: '0.72rem', color: '#949BA4', fontWeight: 600, textTransform: 'uppercase' }}>
+                            <div style={{ fontSize: '0.7rem', color: '#949BA4', fontWeight: 600, textTransform: 'uppercase' }}>
                               {f.label}
                             </div>
-                            <div style={{ fontSize: '0.825rem', color: '#F2F3F5', fontWeight: 500 }}>
+                            <div style={{ fontSize: '0.8rem', color: '#F2F3F5' }}>
                               {f.value}
                             </div>
                           </div>
                         ))}
                       </div>
 
-                      {/* Footer */}
-                      <div style={{ fontSize: '0.72rem', color: '#949BA4', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '8px' }}>
+                      <div style={{ fontSize: '0.72rem', color: '#949BA4', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '6px' }}>
                         {activeCmd.embed.footer}
                       </div>
                     </div>
 
-                    {/* Optional Thumbnail */}
                     {activeCmd.embed.thumbnail && (
                       <img
                         src={activeCmd.embed.thumbnail}
                         alt="Thumbnail"
-                        style={{
-                          width: '64px',
-                          height: '64px',
-                          borderRadius: '8px',
-                          objectFit: 'cover',
-                          flexShrink: 0,
-                        }}
+                        style={{ width: '60px', height: '60px', borderRadius: '6px', objectFit: 'cover', flexShrink: 0 }}
                       />
                     )}
                   </div>
                 </div>
 
-                {/* Discord Component Action Buttons */}
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '10px' }}>
+                {/* Discord Embed Buttons */}
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '8px' }}>
                   {activeCmd.embed.buttons.map((btn, bIdx) => (
                     <button
                       key={bIdx}
                       style={{
                         padding: '6px 12px',
-                        borderRadius: '6px',
-                        background: '#4E5058',
+                        borderRadius: '4px',
+                        background: '#383A40',
                         border: 'none',
-                        color: '#FFFFFF',
-                        fontSize: '0.78rem',
+                        color: '#DBDEE1',
+                        fontSize: '0.75rem',
                         fontWeight: 600,
                         cursor: 'default',
-                        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
                       }}
                     >
                       {btn}
@@ -438,59 +365,68 @@ export default function SimpleCommands() {
           </div>
         </div>
 
-        {/* Quick Reference Grid for Other Commands */}
-        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px', textAlign: 'center' }}>
-            More Everyday Commands (Click to copy)
-          </div>
+        {/* Clean Reference Table for Other Commands - Layout Variety (Table, not cards!) */}
+        <div style={{ maxWidth: '900px' }}>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '16px' }}>
+            Quick command reference
+          </h3>
 
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '10px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
-            {quickCommands.map((qc) => {
-              const isCopied = copiedCmd === qc.cmd;
+            {quickReference.map((row) => {
+              const isCopied = copiedCmd === row.cmd;
               return (
                 <div
-                  key={qc.cmd}
-                  onClick={() => handleCopy(qc.cmd)}
-                  className="glass-card"
+                  key={row.cmd}
                   style={{
-                    padding: '12px 16px',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid rgba(255, 255, 255, 0.06)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(139, 92, 246, 0.15)';
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                    padding: '14px 0',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                    gap: '16px',
                   }}
                 >
-                  <div>
-                    <code style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.9rem', fontFamily: 'var(--font-mono)' }}>
-                      {qc.cmd}
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', flex: 1, minWidth: 0 }}>
+                    <code
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
+                        color: '#FFFFFF',
+                        minWidth: '90px',
+                      }}
+                    >
+                      {row.cmd}
                     </code>
-                    <div style={{ color: '#94A3B8', fontSize: '0.75rem', marginTop: '2px' }}>
-                      {qc.desc}
-                    </div>
+                    <span style={{ color: '#94A3B8', fontSize: '0.875rem' }}>
+                      {row.desc}
+                    </span>
                   </div>
 
-                  <span style={{ color: isCopied ? '#34D399' : '#64748B', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    {isCopied ? <Check size={14} /> : <Copy size={14} />}
-                    {isCopied && 'Copied'}
-                  </span>
+                  <button
+                    onClick={() => handleCopy(row.cmd)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      background: 'transparent',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      color: isCopied ? '#34D399' : '#94A3B8',
+                      fontSize: '0.75rem',
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {isCopied ? <Check size={12} /> : <Copy size={12} />}
+                    <span>{isCopied ? 'Copied' : 'Copy'}</span>
+                  </button>
                 </div>
               );
             })}

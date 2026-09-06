@@ -12,99 +12,72 @@ export default function Footer({ onNavigate }) {
   };
 
   return (
-    <footer style={{ position: 'relative', marginTop: '60px', overflow: 'hidden' }}>
+    <footer style={{ position: 'relative' }}>
       
-      {/* High-Impact CTA Banner */}
-      <div className="container" style={{ marginBottom: '80px', position: 'relative', zIndex: 1 }}>
-        <div
-          className="glass-card"
-          style={{
-            borderRadius: '32px',
-            padding: '60px 40px',
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(35, 25, 70, 0.85) 0%, rgba(14, 18, 32, 0.95) 100%)',
-            border: '1px solid rgba(139, 92, 246, 0.5)',
-            boxShadow: '0 25px 70px rgba(0,0,0,0.8), 0 0 50px rgba(139, 92, 246, 0.35)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}
-        >
-          {/* Radiant Halo Effect */}
+      {/* Clean Full-Width CTA Callout Section */}
+      <section
+        style={{
+          borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+          padding: '120px 0 100px 0',
+          textAlign: 'center',
+        }}
+      >
+        <div className="container" style={{ maxWidth: '640px' }}>
+          <h2
+            style={{
+              fontSize: 'clamp(2.2rem, 4vw, 3rem)',
+              fontWeight: 800,
+              marginBottom: '16px',
+              letterSpacing: '-0.02em',
+              color: '#FFFFFF',
+            }}
+          >
+            Elevate your server's sound.
+          </h2>
+
+          <p
+            style={{
+              fontSize: '1.1rem',
+              color: '#94A3B8',
+              marginBottom: '36px',
+              lineHeight: 1.6,
+            }}
+          >
+            Add Shadow to your Discord guild in seconds. Enjoy lag-free 384kbps lossless audio, instant slash commands, and 24/7 uptime.
+          </p>
+
           <div
             style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '600px',
-              height: '300px',
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%)',
-              filter: 'blur(50px)',
-              pointerEvents: 'none',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '14px',
             }}
-          />
-
-          <div style={{ position: 'relative', zIndex: 1, maxWidth: '720px', margin: '0 auto' }}>
-            <div className="badge-glow" style={{ marginBottom: '20px' }}>
-              <Sparkles size={14} color="#A78BFA" />
-              <span>TRANSFORM YOUR GUILD TODAY</span>
-            </div>
-
-            <h2
-              style={{
-                fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
-                fontWeight: 900,
-                marginBottom: '20px',
-                lineHeight: 1.15
-              }}
+          >
+            <a
+              href="https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot%20applications.commands&permissions=3147776"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ padding: '14px 28px', fontSize: '0.95rem' }}
             >
-              Ready to elevate your Discord server’s <span className="gradient-text-violet">sound</span>?
-            </h2>
+              <Sparkles size={16} />
+              <span>Add to Discord</span>
+            </a>
 
-            <p
-              style={{
-                fontSize: '1.125rem',
-                color: '#94A3B8',
-                marginBottom: '36px',
-                lineHeight: 1.65
-              }}
+            <a
+              href="https://discord.gg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+              style={{ padding: '14px 24px', fontSize: '0.95rem' }}
             >
-              Join 45,000+ communities enjoying lag-free 384kbps lossless music and autonomous AI AutoDJ curation. Setup takes less than 15 seconds.
-            </p>
-
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                gap: '16px',
-              }}
-            >
-              <a
-                href="https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot%20applications.commands&permissions=3147776"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-                style={{ padding: '16px 36px', fontSize: '1.05rem' }}
-              >
-                <Sparkles size={18} />
-                <span>Add Shadow to Discord</span>
-              </a>
-
-              <a
-                href="https://discord.gg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-                style={{ padding: '16px 30px', fontSize: '1.05rem' }}
-              >
-                <span>Join Support Server</span>
-                <ExternalLink size={16} />
-              </a>
-            </div>
+              <span>Support Server</span>
+              <ExternalLink size={14} />
+            </a>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Main Footer Links & Copyright */}
       <div

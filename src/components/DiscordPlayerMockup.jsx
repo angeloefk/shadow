@@ -60,13 +60,13 @@ export default function DiscordPlayerMockup() {
 
   return (
     <div
-      className="discord-widget-wrapper glass-card"
+      className="discord-widget-wrapper"
       style={{
-        borderRadius: '24px',
+        borderRadius: '16px',
         overflow: 'hidden',
-        border: '1px solid rgba(139, 92, 246, 0.28)',
-        background: 'linear-gradient(180deg, rgba(20, 24, 38, 0.95) 0%, rgba(13, 16, 26, 0.98) 100%)',
-        boxShadow: '0 24px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(139, 92, 246, 0.25)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        background: '#1E1F22',
+        boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.6)',
       }}
     >
       {/* Top Discord Voice Channel Status Bar */}

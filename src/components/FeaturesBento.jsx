@@ -13,9 +13,6 @@ export default function FeaturesBento() {
         
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 60px auto' }}>
-          <div className="badge-glow" style={{ marginBottom: '16px' }}>
-            <Sparkles size={14} color="#A78BFA" />
-            <span>UNMATCHED BOT ARCHITECTURE</span>
           </div>
           <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 800, marginBottom: '18px' }}>
             Engineered for <span className="gradient-text-violet">Audiophiles</span> and Server Legends.

@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import FeaturesBento from './components/FeaturesBento';
-import DspStudio from './components/DspStudio';
-import AiDjSandbox from './components/AiDjSandbox';
-import CommandsExplorer from './components/CommandsExplorer';
-import LeaderboardSection from './components/LeaderboardSection';
-import PricingSection from './components/PricingSection';
+import SimpleFeatures from './components/SimpleFeatures';
+import SimpleCommands from './components/SimpleCommands';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import TermsOfService from './pages/TermsOfService';
@@ -66,7 +62,7 @@ export default function App() {
       document.title = 'Privacy Policy | Shadow Music Bot';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      document.title = 'Shadow Music | The Next-Gen AI Music Experience for Discord';
+      document.title = 'Shadow Music | The Ultimate Discord Music Bot';
     }
   }, [currentRoute]);
 
@@ -102,12 +98,8 @@ export default function App() {
       {currentRoute === 'home' && (
         <main>
           <Hero />
-          <FeaturesBento />
-          <DspStudio />
-          <AiDjSandbox />
-          <CommandsExplorer />
-          <LeaderboardSection />
-          <PricingSection />
+          <SimpleFeatures />
+          <SimpleCommands />
           <FaqSection />
         </main>
       )}

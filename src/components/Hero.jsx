@@ -62,13 +62,10 @@ export default function Hero() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s',
                 }}
               >
                 <Sparkles size={15} color="#A78BFA" />
-                <span>SHADOW AI 2.4 IS LIVE: AutoDJ & 8D Filters</span>
-                <ArrowRight size={13} color="#C4B5FD" />
+                <span>384kbps Opus Lossless • 24/7 Playback • 100% Free</span>
               </div>
             </div>
 
@@ -82,8 +79,8 @@ export default function Hero() {
                 marginBottom: '22px',
               }}
             >
-              The Next-Gen <br />
-              <span className="gradient-text-violet">AI Music Experience</span> <br />
+              The Ultimate <br />
+              <span className="gradient-text-violet">Music Experience</span> <br />
               for Discord.
             </h1>
 
@@ -97,7 +94,7 @@ export default function Hero() {
                 maxWidth: '560px',
               }}
             >
-              Stream studio-grade <span style={{ color: '#F1F5F9', fontWeight: 600 }}>384kbps lossless audio</span> with zero lag. Let our built-in <span style={{ color: '#22D3EE', fontWeight: 600 }}>AI AutoDJ</span> curate real-time server vibes, and reshape tracks with spatial 8D, Bassboost, and Nightcore DSP filters.
+              Stream studio-grade <span style={{ color: '#F1F5F9', fontWeight: 600 }}>384kbps lossless audio</span> with zero lag. Enjoy instant slash commands, 24/7 uptime, and real-time DSP audio filters in every voice channel.
             </p>
 
             {/* Dual CTAs */}
@@ -124,7 +121,7 @@ export default function Hero() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
                 </svg>
-                <span>Add to Discord Free</span>
+                <span>Add to Discord</span>
               </a>
 
               <a
@@ -136,7 +133,7 @@ export default function Hero() {
                 }}
               >
                 <Terminal size={18} color="#A78BFA" />
-                <span>Explore Commands</span>
+                <span>Commands</span>
               </a>
             </div>
 
@@ -144,15 +141,15 @@ export default function Hero() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center', color: '#64748B', fontSize: '0.825rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <ShieldCheck size={16} color="#10B981" />
-                <span>Discord Verified Bot</span>
+                <span>Discord Verified</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Zap size={16} color="#F59E0B" />
-                <span>Instant 1-Click Setup</span>
+                <span>Instant Setup</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Headphones size={16} color="#06B6D4" />
-                <span>Zero Latency Opus</span>
+                <span>Zero Latency</span>
               </div>
             </div>
 
@@ -225,7 +222,7 @@ export default function Hero() {
               }}
             >
               <Sparkles size={14} color="#C084FC" />
-              <span>Interactive Live Preview (Click controls!)</span>
+              <span>Live Player Preview</span>
             </div>
 
             <div style={{ position: 'relative', zIndex: 1 }}>

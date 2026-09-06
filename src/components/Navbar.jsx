@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Disc, Menu, X, ChevronRight, ExternalLink } from 'lucide-react';
+import { Sparkles, Disc, Menu, X, ChevronRight } from 'lucide-react';
 
 export default function Navbar({ currentRoute = 'home', onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
@@ -36,11 +36,7 @@ export default function Navbar({ currentRoute = 'home', onNavigate }) {
 
   const navLinks = [
     { name: 'Features', href: '#features' },
-    { name: 'AI DJ', href: '#aidj' },
-    { name: 'DSP Studio', href: '#dsp-studio' },
     { name: 'Commands', href: '#commands' },
-    { name: 'Leaderboard', href: '#leaderboard' },
-    { name: 'Pricing', href: '#pricing' },
     { name: 'FAQ', href: '#faq' },
   ];
 
@@ -73,21 +69,19 @@ export default function Navbar({ currentRoute = 'home', onNavigate }) {
               width: '42px',
               height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              overflow: 'hidden',
               boxShadow: '0 0 20px rgba(124, 58, 237, 0.5)',
               position: 'relative',
-              overflow: 'hidden'
+              border: '2px solid rgba(139, 92, 246, 0.5)',
+              flexShrink: 0,
             }}
           >
-            <Disc size={22} color="#FFFFFF" className="anim-spin-vinyl" style={{ animationDuration: '10s' }} />
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 70%)'
+            <img
+              src="/shadow-avatar.webp"
+              alt="Shadow Logo"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              onError={(e) => {
+                e.target.src = 'https://cdn.discordapp.com/avatars/1352679776036589648/a_2b85e7ea42101ad3e3160c98880f3598.webp?size=1024';
               }}
             />
           </div>

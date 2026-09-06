@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Disc, Heart, Shield, Radio, ExternalLink, ArrowRight } from 'lucide-react';
+import { Sparkles, Disc, Heart, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   const [modalType, setModalType] = useState(null); // fallback modal
@@ -132,20 +132,27 @@ export default function Footer({ onNavigate }) {
                     width: '36px',
                     height: '36px',
                     borderRadius: '10px',
-                    background: 'linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(139, 92, 246, 0.4)',
+                    boxShadow: '0 0 12px rgba(139, 92, 246, 0.3)',
+                    flexShrink: 0,
                   }}
                 >
-                  <Disc size={20} color="#FFFFFF" className="anim-spin-vinyl" style={{ animationDuration: '10s' }} />
+                  <img
+                    src="/shadow-avatar.webp"
+                    alt="Shadow Bot"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.src = 'https://cdn.discordapp.com/avatars/1352679776036589648/a_2b85e7ea42101ad3e3160c98880f3598.webp?size=1024';
+                    }}
+                  />
                 </div>
                 <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#FFFFFF' }}>
                   SHADOW<span style={{ color: '#A78BFA' }}>MUSIC</span>
                 </span>
               </div>
               <p style={{ color: '#64748B', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '18px' }}>
-                The next-generation AI Discord music bot with 384kbps lossless audio, DSP sound sculpting, and community rank leaderboards.
+                The high-fidelity Discord music bot with 384kbps lossless audio, 24/7 uptime, and real-time DSP sound filters.
               </p>
               <div
                 style={{
@@ -169,28 +176,23 @@ export default function Footer({ onNavigate }) {
             {/* Quick Links */}
             <div>
               <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
-                Product
+                Navigation
               </h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.875rem', color: '#94A3B8' }}>
-                <li><a href="#features" style={{ transition: 'color 0.2s' }}>Features Overview</a></li>
-                <li><a href="#aidj" style={{ transition: 'color 0.2s' }}>AI AutoDJ Engine</a></li>
-                <li><a href="#dsp-studio" style={{ transition: 'color 0.2s' }}>DSP Filter Studio</a></li>
+                <li><a href="#features" style={{ transition: 'color 0.2s' }}>Features</a></li>
                 <li><a href="#commands" style={{ transition: 'color 0.2s' }}>Slash Commands</a></li>
-                <li><a href="#pricing" style={{ transition: 'color 0.2s' }}>Shadow Pro Pricing</a></li>
+                <li><a href="#faq" style={{ transition: 'color 0.2s' }}>FAQ</a></li>
               </ul>
             </div>
 
             {/* Resources */}
             <div>
               <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
-                Community & Support
+                Discord
               </h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.875rem', color: '#94A3B8' }}>
-                <li><a href="https://discord.gg" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
-                <li><a href="#faq">FAQ & Troubleshooting</a></li>
-                <li><a href="#leaderboard">Server Leaderboard</a></li>
-                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Release Changelog</a></li>
-                <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer">Bot Invite Link</a></li>
+                <li><a href="https://discord.gg" target="_blank" rel="noopener noreferrer">Support Server</a></li>
+                <li><a href="https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot%20applications.commands&permissions=3147776" target="_blank" rel="noopener noreferrer">Add Shadow to Discord</a></li>
               </ul>
             </div>
 
